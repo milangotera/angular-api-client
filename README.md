@@ -1,27 +1,60 @@
-# AngularApiClientBooststrap
+# Cliente Api Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+Sencillo cliente angular para consumir el proyecto de api https://github.com/milang90/node-api-mysql 
 
-## Development server
+## Comenzando
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Hasta ahora no tenemos ningun tipo de seguridad pues se ha hecho pensando solo en listar informacón del api
 
-## Code scaffolding
+### Requisitos Previos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Tener instalado tu ambiente de node así que recuerda consultar que versión tienes instalado en tu equipo.
 
-## Build
+Este proyecto fué desarrollado bajo la version v12.13.0
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+node --version
+```
 
-## Running unit tests
+Tener instaldo Angular en nuestro equipo, sino lo tienes puedes hacerlo con el siguiente comando
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm install -g @angular/cli
+```
 
-## Running end-to-end tests
+### Instalación
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Lo primero que tienes que hacer es navegar hasta la carpeta raiz del proyecto e instalar todas las dependencias
 
-## Further help
+Eso lo hacemos ejecutando el sisguiente comando
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+npm install
+```
+
+Luego que termine el proceso de instalación de todos los módulos necesarios ya puedes echar a andar el proyecto.
+
+Esto se hace ejecutando el comando:
+
+```
+npm start
+```
+
+Ya con esto es todo y tienes ejecuntando el proyecto en tu servidor http://localhost:4200
+
+las Url's disponibles en esta versión son:
+
+GET /api/users/list
+Para listar todos los usuarios
+
+GET /api/users/:id
+Para mostrar los datos de un usuario
+
+GET /api/users/add
+Para listar los usuarios
+
+Las Url's restantes del CRUD para editar y eliminar los datos se ejecuntan de manera transparente para el usuario así que no te preocupes por ello
+
+### Finalmente
+
+Recuerda tener installar primero el proyecto con el pequeño servidor de Node + Express + Mysql
