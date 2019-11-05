@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { UserListComponent } from './pages/users/user-list/user-list.component';
+import { UserAddComponent } from './pages/users/user-add/user-add.component';
+import { UserShowComponent } from './pages/users/user-show/user-show.component';
 
 const routes: Routes = [
   {
@@ -12,7 +14,14 @@ const routes: Routes = [
   {
     path: 'users/list',
     component: UserListComponent,
-    data: { title: 'List of Products' }
+  },
+  {
+    path: 'users/add',
+    component: UserAddComponent,
+  },
+  {
+    path: 'users/:id',
+    component: UserShowComponent,
   },
   {path: '404', component: ErrorComponent},
   {path: '**', redirectTo: '/404'}

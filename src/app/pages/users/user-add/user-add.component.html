@@ -1,0 +1,21 @@
+<form [formGroup]="userForm" (ngSubmit)="userCreate(userForm.value)">
+    <br />
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Escribe el nombre" [disabled]="load">
+        <small id="nameHelp" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Escribe el email" [disabled]="load">
+        <small id="emailHelp" class="form-text text-muted"></small>
+    </div>
+    <button class="btn btn-secondary float-left" routerLink="/users/list" [disabled]="load">
+        <i class="fa fa-arrow-circle-left"></i>
+        Regresar
+    </button>
+    <button class="btn btn-success float-right" [disabled]="load || !userForm.valid">
+        <i class="fa fa-save"></i>
+        {{btn.guardar}}
+    </button>
+</form>

@@ -9,16 +9,61 @@ import { UserModel } from '../models/UserModel';
 })
 export class ApiService {
 
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  };
+  headers: any = new HttpHeaders({'Content-Type': 'application/json'});
 
   apiUrl: string = "http://localhost:8000/api";
 
   constructor(private http: HttpClient){
   }
 
-  userList() : Observable<UserModel> {
-    return this.http.get<UserModel>(`${this.apiUrl}/users`);
+  userList(){
+    return new Promise((resolve, reject) => {
+      this.http.get(`${this.apiUrl}/users`, { headers: this.headers, observe: 'response' } ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
   }
+
+  userCreate(data){
+    return new Promise((resolve, reject) => {
+      this.http.post(`${this.apiUrl}/users`, data, { headers: this.headers, observe: 'response' } ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+  }
+
+  userUpdate(data){
+    return new Promise((resolve, reject) => {
+      this.http.put(`${this.apiUrl}/users/${data.id}`, data, { headers: this.headers, observe: 'response' } ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+  }
+
+  userShow(id){
+    return new Promise((resolve, reject) => {
+      this.http.get(`${this.apiUrl}/users/${id}`, { headers: this.headers, observe: 'response' } ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+  }
+
+  userDelete(id){
+    return new Promise((resolve, reject) => {
+      this.http.delete(`${this.apiUrl}/users/${id}`, { headers: this.headers, observe: 'response' } ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+  }
+
 }
